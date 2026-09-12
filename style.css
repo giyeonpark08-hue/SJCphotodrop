@@ -1,73 +1,104 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Green top section */
+
+.hero {
     background-color: #5F6F52;
     color: white;
-    text-align: center;
-    font-family: Arial, sans-serif;
 
-    min-height: 100vh;
+    height: 65vh;
+    min-height: 450px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.school-name {
+    margin: 0 0 25px;
+    font-size: 17px;
+    font-weight: 500;
 }
 
 h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
+    margin: 0;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.1;
 }
 
-p {
-    font-size: 20px;
-    margin-bottom: 30px;
+.subtitle {
+    margin: 25px auto 0;
+    max-width: 600px;
+    font-size: 19px;
+    line-height: 1.5;
 }
+
+
+/* White bottom section */
+
+.content {
+    height: 35vh;
+    min-height: 250px;
+
+    background-color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+}
+
+
+/* Button */
 
 button {
-    background-color: white;
-    color: #222222;
+    background-color: #5F6F52;
+    color: white;
+
     border: none;
-    padding: 15px 35px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 8px;
+    border-radius: 6px;
+
+    padding: 15px 32px;
+
+    font-size: 17px;
+    font-weight: 600;
+
     cursor: pointer;
 }
 
-/* Mobile design */
+button:hover {
+    background-color: #4F5F44;
+}
 
-@media (max-width: 600px) {
+.hero {
+    background-color: #5F6F52;
+    color: white;
 
-    body {
-        padding: 20px;
-        box-sizing: border-box;
-    }
+    height: 65vh;
 
-    h1 {
-        font-size: 32px;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 
-    p {
-        font-size: 18px;
-    }
-
-    select,
-    textarea {
-        width: 100%;
-        box-sizing: border-box;
-        font-size: 16px;
-        padding: 10px;
-    }
-
-    textarea {
-        min-height: 150px;
-    }
-
-    input[type="file"] {
-        width: 100%;
-        font-size: 16px;
-    }
-
-    button {
-        width: 100%;
-        padding: 16px;
-        font-size: 18px;
-    }
+    text-align: center;
+    padding: 100px 20px 40px;
 }
