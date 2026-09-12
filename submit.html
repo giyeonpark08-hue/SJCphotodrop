@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit a Report</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div>
+        <h1>Submit a Report</h1>
+
+        <p>Tell us what you would like to share.</p>
+
+        <!-- Category -->
+        <label for="category">Category</label>
+
+        <br><br>
+
+        <select id="category">
+            <option value="">Select a category</option>
+            <option value="suggestion">Suggestion</option>
+            <option value="event">School Event</option>
+            <option value="student-council">Student Council</option>
+            <option value="other">Other</option>
+        </select>
+
+        <br><br><br>
+
+        <!-- Description -->
+        <label for="description">Description</label>
+
+        <br><br>
+
+        <textarea
+            id="description"
+            rows="6"
+            cols="40"
+            placeholder="Tell us what you would like to share..."
+        ></textarea>
+
+        <br><br><br>
+
+        <!-- Photo -->
+        <label for="photo">Upload a Photo</label>
+
+        <br><br>
+
+        <input
+            type="file"
+            id="photo"
+            accept="image/*"
+        >
+
+        <br><br><br>
+
+<!-- Consent -->
+<br><br>
+
+<label>
+    <input type="checkbox" id="consent">
+    I agree that Student Council may review this submission.
+</label>
+
+<br><br>
+
+<!-- Submit button -->
+<button type="button" id="submitButton">Submit</button>
+
+<script src="script.js"></script>
+
+</body>
+</html>
