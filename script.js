@@ -1,3 +1,4 @@
+const scriptURL = "https://script.google.com/macros/s/AKfycbxA_L3ZVWsICH7guD8VaFipoZxburVd8y1W4fIHDTgBcapWuiHjQjmUU0Laif7K7izq/exec";
 const submitButton = document.getElementById("submitButton");
 
 const consent = document.getElementById("consent");
@@ -266,8 +267,87 @@ submitButton.addEventListener("click", function () {
     }
 
 
-    /* SUCCESS */
+   /* =========================
+   SEND SUBMISSION
+   ========================= */
 
-    alert("Submission received!");
+const selectedSeason = document.querySelector(
+    'input[name="sportsSeason"]:checked'
+);
+
+let subCategory = "";
+
+if (selectedCategory.value === "Pep Rally") {
+
+    subCategory = pepRallyType.value;
+
+} else if (selectedCategory.value === "Dance") {
+
+    subCategory = danceType.value;
+
+} else if (selectedCategory.value === "Coffee House") {
+
+    subCategory = coffeeHouseType.value;
+
+} else if (selectedCategory.value === "Sports") {
+
+    subCategory =
+        selectedSeason.value + " - " + sportType.value;
+
+}
+
+
+/* PHOTO DATA */
+
+const file = photo.files[0];
+
+const reader = new FileReader();
+
+
+reader.onload = function () {
+
+    const submission = {
+
+        category: selectedCategory.value,
+
+        subCategory: subCategory,
+
+        photoName: file.name,
+
+        photoType: file.type,
+
+        photoData: reader.result
+
+    };
+
+
+    fetch(scriptURL, {
+
+        method: "POST",
+
+        body: JSON.stringify(submission)
+
+    })
+    .then(() => {
+
+        alert("Submission received!");
+
+        location.reload();
+
+    })
+    .catch(error => {
+
+        console.error(error);
+
+        alert(
+            "Something went wrong. Please try again."
+        );
+
+    });
+
+};
+
+
+reader.readAsDataURL(file);
 
 });
