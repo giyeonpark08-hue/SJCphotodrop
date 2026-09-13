@@ -337,10 +337,9 @@ submitButton.addEventListener("click", function () {
 
         })
 
-        .then(() => {
+       .then(() => {
 
-    alert("Thank you! Your photo has been submitted.");
-
+    document.getElementById("successMessage").style.display = "block";
 
 })
 
