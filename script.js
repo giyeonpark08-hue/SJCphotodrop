@@ -1,6 +1,11 @@
 const scriptURL =
     "https://script.google.com/macros/s/AKfycbxA_L3ZVWsICH7guD8VaFipoZxburVd8y1W4fIHDTgBcapWuiHjQjmUU0Laif7K7izq/exec";
 
+
+// =========================
+// ELEMENTS
+// =========================
+
 const categoryInputs =
     document.querySelectorAll(
         'input[name="category"]'
@@ -26,9 +31,9 @@ const sportsDetails =
         "sportsDetails"
     );
 
-const sportsSeasonDetails =
-    document.getElementById(
-        "sportsSeasonDetails"
+const sportsSeasonInputs =
+    document.querySelectorAll(
+        'input[name="sportsSeason"]'
     );
 
 const sportDivisionDetails =
@@ -36,19 +41,14 @@ const sportDivisionDetails =
         "sportDivisionDetails"
     );
 
+const sportDivisionInputs =
+    document.querySelectorAll(
+        'input[name="sportsDivision"]'
+    );
+
 const sportTypeDetails =
     document.getElementById(
         "sportTypeDetails"
-    );
-
-const sportsSeasonInputs =
-    document.querySelectorAll(
-        'input[name="sportsSeason"]'
-    );
-
-const sportDivisionInputs =
-    document.querySelectorAll(
-        'input[name="sportDivision"]'
     );
 
 const sportType =
@@ -77,9 +77,9 @@ const successMessage =
     );
 
 
-// -------------------------
-// Category selection
-// -------------------------
+// =========================
+// CATEGORY
+// =========================
 
 categoryInputs.forEach(input => {
 
@@ -97,9 +97,6 @@ categoryInputs.forEach(input => {
                 "none";
 
             sportsDetails.style.display =
-                "none";
-
-            sportsSeasonDetails.style.display =
                 "none";
 
             sportDivisionDetails.style.display =
@@ -150,9 +147,6 @@ categoryInputs.forEach(input => {
                 sportsDetails.style.display =
                     "block";
 
-                sportsSeasonDetails.style.display =
-                    "block";
-
             }
 
         }
@@ -161,9 +155,9 @@ categoryInputs.forEach(input => {
 });
 
 
-// -------------------------
-// Sports season selection
-// -------------------------
+// =========================
+// SPORTS SEASON
+// =========================
 
 sportsSeasonInputs.forEach(input => {
 
@@ -178,7 +172,6 @@ sportsSeasonInputs.forEach(input => {
                 "none";
 
 
-            // Other season
             if (
                 this.value ===
                 "Other"
@@ -189,17 +182,8 @@ sportsSeasonInputs.forEach(input => {
             }
 
 
-            // Fall / Winter / Spring
-            if (
-                this.value === "Fall" ||
-                this.value === "Winter" ||
-                this.value === "Spring"
-            ) {
-
-                sportDivisionDetails.style.display =
-                    "block";
-
-            }
+            sportDivisionDetails.style.display =
+                "block";
 
         }
     );
@@ -207,9 +191,9 @@ sportsSeasonInputs.forEach(input => {
 });
 
 
-// -------------------------
-// Sport level selection
-// -------------------------
+// =========================
+// SPORTS LEVEL
+// =========================
 
 sportDivisionInputs.forEach(input => {
 
@@ -220,8 +204,11 @@ sportDivisionInputs.forEach(input => {
             sportTypeDetails.style.display =
                 "block";
 
-            sportType.innerHTML =
-                "";
+            sportType.innerHTML = `
+                <option value="">
+                    Select which sport
+                </option>
+            `;
 
 
             const season =
@@ -229,13 +216,12 @@ sportDivisionInputs.forEach(input => {
                     'input[name="sportsSeason"]:checked'
                 )?.value;
 
+
             const level =
                 this.value;
 
 
-            // -------------------------
             // FALL
-            // -------------------------
 
             if (
                 season === "Fall"
@@ -246,11 +232,7 @@ sportDivisionInputs.forEach(input => {
                     level === "Senior"
                 ) {
 
-                    sportType.innerHTML +=
-                        `
-                        <option value="">
-                            Select sport
-                        </option>
+                    sportType.innerHTML += `
 
                         <option value="Boys Basketball">
                             Boys Basketball
@@ -271,7 +253,8 @@ sportDivisionInputs.forEach(input => {
                         <option value="Boys Football">
                             Boys Football
                         </option>
-                        `;
+
+                    `;
 
                 }
 
@@ -280,11 +263,7 @@ sportDivisionInputs.forEach(input => {
                     level === "Other"
                 ) {
 
-                    sportType.innerHTML +=
-                        `
-                        <option value="">
-                            Select sport
-                        </option>
+                    sportType.innerHTML += `
 
                         <option value="Cross Country">
                             Cross Country
@@ -317,16 +296,15 @@ sportDivisionInputs.forEach(input => {
                         <option value="Girls Flag Football">
                             Girls Flag Football
                         </option>
-                        `;
+
+                    `;
 
                 }
 
             }
 
 
-            // -------------------------
             // WINTER
-            // -------------------------
 
             if (
                 season === "Winter"
@@ -337,11 +315,7 @@ sportDivisionInputs.forEach(input => {
                     level === "Senior"
                 ) {
 
-                    sportType.innerHTML +=
-                        `
-                        <option value="">
-                            Select sport
-                        </option>
+                    sportType.innerHTML += `
 
                         <option value="Boys Basketball">
                             Boys Basketball
@@ -362,7 +336,8 @@ sportDivisionInputs.forEach(input => {
                         <option value="Badminton">
                             Badminton
                         </option>
-                        `;
+
+                    `;
 
                 }
 
@@ -371,11 +346,7 @@ sportDivisionInputs.forEach(input => {
                     level === "Other"
                 ) {
 
-                    sportType.innerHTML +=
-                        `
-                        <option value="">
-                            Select sport
-                        </option>
+                    sportType.innerHTML += `
 
                         <option value="Wrestling">
                             Wrestling
@@ -396,16 +367,15 @@ sportDivisionInputs.forEach(input => {
                         <option value="Curling">
                             Curling
                         </option>
-                        `;
+
+                    `;
 
                 }
 
             }
 
 
-            // -------------------------
             // SPRING
-            // -------------------------
 
             if (
                 season === "Spring"
@@ -416,16 +386,13 @@ sportDivisionInputs.forEach(input => {
                     level === "Senior"
                 ) {
 
-                    sportType.innerHTML +=
-                        `
-                        <option value="">
-                            Select sport
-                        </option>
+                    sportType.innerHTML += `
 
                         <option value="Boys Rugby">
                             Boys Rugby
                         </option>
-                        `;
+
+                    `;
 
                 }
 
@@ -434,11 +401,7 @@ sportDivisionInputs.forEach(input => {
                     level === "Other"
                 ) {
 
-                    sportType.innerHTML +=
-                        `
-                        <option value="">
-                            Select sport
-                        </option>
+                    sportType.innerHTML += `
 
                         <option value="Girls Rugby">
                             Girls Rugby
@@ -463,7 +426,8 @@ sportDivisionInputs.forEach(input => {
                         <option value="Track and Field">
                             Track and Field
                         </option>
-                        `;
+
+                    `;
 
                 }
 
@@ -475,42 +439,66 @@ sportDivisionInputs.forEach(input => {
 });
 
 
-// -------------------------
-// Photo file names
-// -------------------------
+// =========================
+// PHOTO FILES
+// =========================
+
+const selectedFiles = new DataTransfer();
 
 photoInput.addEventListener(
     "change",
     function () {
 
-        if (
-            this.files.length === 0
-        ) {
+        Array.from(this.files).forEach(
+            file => {
 
-            photoLabel.textContent =
-                "Click to upload photos";
+                selectedFiles.items.add(file);
 
-            return;
+            }
+        );
 
-        }
+        photoInput.files =
+            selectedFiles.files;
 
-
-        const fileNames =
-            Array.from(this.files)
-                .map(file => file.name)
-                .join("<br>");
-
-
-        photoLabel.innerHTML =
-            fileNames;
+        updateFileList();
 
     }
 );
 
 
-// -------------------------
-// Read file
-// -------------------------
+function updateFileList() {
+
+    const fileList =
+        document.getElementById(
+            "fileList"
+        );
+
+    fileList.innerHTML = "";
+
+    Array.from(
+        selectedFiles.files
+    ).forEach(
+        file => {
+
+            const item =
+                document.createElement("div");
+
+            item.className =
+                "file-item";
+
+            item.textContent =
+                file.name;
+
+            fileList.appendChild(item);
+
+        }
+    );
+
+}
+
+// =========================
+// READ PHOTO
+// =========================
 
 function readFileAsDataURL(file) {
 
@@ -520,10 +508,12 @@ function readFileAsDataURL(file) {
             const reader =
                 new FileReader();
 
+
             reader.onload =
                 () => resolve(
                     reader.result
                 );
+
 
             reader.onerror =
                 () => reject(
@@ -531,6 +521,7 @@ function readFileAsDataURL(file) {
                         "Could not read file."
                     )
                 );
+
 
             reader.readAsDataURL(
                 file
@@ -542,15 +533,17 @@ function readFileAsDataURL(file) {
 }
 
 
-// -------------------------
-// Submit
-// -------------------------
+// =========================
+// SUBMIT
+// =========================
 
 submitButton.addEventListener(
     "click",
     async function () {
 
         try {
+
+            // CATEGORY
 
             const category =
                 document.querySelector(
@@ -569,8 +562,36 @@ submitButton.addEventListener(
             }
 
 
-            let subCategory =
-                "";
+            // CONSENT
+
+            const consent =
+                document.getElementById(
+                    "consent"
+                );
+
+            const schoolUse =
+                document.getElementById(
+                    "schoolUse"
+                );
+
+
+            if (
+                !consent.checked ||
+                !schoolUse.checked
+            ) {
+
+                alert(
+                    "Please confirm both consent statements."
+                );
+
+                return;
+
+            }
+
+
+            // SUBCATEGORY
+
+            let subCategory = "";
 
 
             if (
@@ -580,8 +601,19 @@ submitButton.addEventListener(
 
                 subCategory =
                     document.getElementById(
-                        "pepRally"
+                        "pepRallyType"
                     ).value;
+
+
+                if (!subCategory) {
+
+                    alert(
+                        "Please select which Pep Rally."
+                    );
+
+                    return;
+
+                }
 
             }
 
@@ -593,8 +625,19 @@ submitButton.addEventListener(
 
                 subCategory =
                     document.getElementById(
-                        "dance"
+                        "danceType"
                     ).value;
+
+
+                if (!subCategory) {
+
+                    alert(
+                        "Please select which Dance."
+                    );
+
+                    return;
+
+                }
 
             }
 
@@ -606,8 +649,19 @@ submitButton.addEventListener(
 
                 subCategory =
                     document.getElementById(
-                        "coffeeHouse"
+                        "coffeeHouseType"
                     ).value;
+
+
+                if (!subCategory) {
+
+                    alert(
+                        "Please select which Coffee House."
+                    );
+
+                    return;
+
+                }
 
             }
 
@@ -626,7 +680,7 @@ submitButton.addEventListener(
                 if (!season) {
 
                     alert(
-                        "Please select a sports season."
+                        "Please select a season."
                     );
 
                     return;
@@ -646,7 +700,7 @@ submitButton.addEventListener(
 
                     const level =
                         document.querySelector(
-                            'input[name="sportDivision"]:checked'
+                            'input[name="sportsDivision"]:checked'
                         );
 
 
@@ -689,11 +743,12 @@ submitButton.addEventListener(
             }
 
 
-            const files =
-                Array.from(
-                    photoInput.files
-                );
+            // PHOTOS
 
+            const files =
+    Array.from(
+        selectedFiles.files
+    );
 
             if (
                 files.length === 0
@@ -708,15 +763,13 @@ submitButton.addEventListener(
             }
 
 
-            // Maximum size for one photo
+            // SIZE LIMITS
+
             const maxFileSize =
                 10 * 1024 * 1024;
 
-
-            // Maximum total size
             const maxTotalSize =
                 20 * 1024 * 1024;
-
 
             let totalSize = 0;
 
@@ -760,7 +813,8 @@ submitButton.addEventListener(
             }
 
 
-            // Disable button while sending
+            // BUTTON
+
             submitButton.disabled =
                 true;
 
@@ -768,7 +822,9 @@ submitButton.addEventListener(
                 "Submitting...";
 
 
-            const photoData =
+            // CONVERT PHOTOS
+
+            const photos =
                 await Promise.all(
 
                     files.map(
@@ -778,6 +834,7 @@ submitButton.addEventListener(
                                 await readFileAsDataURL(
                                     file
                                 );
+
 
                             return {
 
@@ -798,6 +855,8 @@ submitButton.addEventListener(
                 );
 
 
+            // DATA
+
             const submission = {
 
                 category:
@@ -807,31 +866,27 @@ submitButton.addEventListener(
                     subCategory,
 
                 photos:
-                    photoData
+                    photos
 
             };
 
 
-            // Send to Google Apps Script
-            const response =
-                await fetch(
-                    scriptURL,
-                    {
-                        method: "POST",
-                        body:
-                            JSON.stringify(
-                                submission
-                            )
-                    }
-                );
+            // SEND
+
+            await fetch(
+                scriptURL,
+                {
+                    method: "POST",
+                    body:
+                        JSON.stringify(
+                            submission
+                        )
+                }
+            );
 
 
-            // Do NOT parse response as JSON.
-            // Apps Script may return a response
-            // that cannot be read by response.json().
+            // SUCCESS
 
-
-            // Success
             submitButton.style.display =
                 "none";
 
@@ -844,6 +899,7 @@ submitButton.addEventListener(
             console.error(
                 error
             );
+
 
             alert(
                 "Something went wrong. Please try again."
