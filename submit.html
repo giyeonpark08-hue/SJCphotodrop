@@ -1,73 +1,443 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Submit a Report</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Submit a Photo</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div>
-        <h1>Submit a Report</h1>
+    <!-- =========================
+         GREEN TOP SECTION
+         ========================= -->
 
-        <p>Tell us what you would like to share.</p>
+    <section class="hero">
 
-        <!-- Category -->
-        <label for="category">Category</label>
+        <div class="hero-content">
 
-        <br><br>
+            <p class="school-name">
+                St. John’s College · Student Council
+            </p>
 
-        <select id="category">
-            <option value="">Select a category</option>
-            <option value="suggestion">Suggestion</option>
-            <option value="event">School Event</option>
-            <option value="student-council">Student Council</option>
-            <option value="other">Other</option>
-        </select>
+            <h1>
+                Submit Your Photos
+            </h1>
 
-        <br><br><br>
+            <p class="subtitle">
+                Share your favourite school memories with Student Council.
+            </p>
 
-        <!-- Description -->
-        <label for="description">Description</label>
+        </div>
 
-        <br><br>
+    </section>
 
-        <textarea
-            id="description"
-            rows="6"
-            cols="40"
-            placeholder="Tell us what you would like to share..."
-        ></textarea>
 
-        <br><br><br>
+    <!-- =========================
+         WHITE CONTENT SECTION
+         ========================= -->
 
-        <!-- Photo -->
-        <label for="photo">Upload a Photo</label>
+    <main class="content">
 
-        <br><br>
+        <div class="form-container">
 
-        <input
-            type="file"
-            id="photo"
-            accept="image/*"
-        >
 
-        <br><br><br>
+            <!-- =========================
+                 CATEGORY
+                 ========================= -->
 
-<!-- Consent -->
-<br><br>
+            <div class="field">
 
-<label>
-    <input type="checkbox" id="consent">
-    I agree that Student Council may review this submission.
-</label>
+                <span class="field-title">
+                    CATEGORY
+                </span>
 
-<br><br>
 
-<!-- Submit button -->
-<button type="button" id="submitButton">Submit</button>
+                <!-- Pep Rally -->
 
-<script src="script.js"></script>
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="category"
+                        id="pepRally"
+                        value="Pep Rally"
+                    >
+
+                    <span>
+                        Pep Rally
+                    </span>
+
+                </label>
+
+
+                <div
+                    id="pepRallyDetails"
+                    class="sub-field"
+                >
+
+                    <select id="pepRallyType">
+
+                        <option value="">
+                            Select which Pep Rally
+                        </option>
+
+                        <option value="Fall Pep Rally">
+                            Fall Pep Rally
+                        </option>
+
+                        <option value="Winter Pep Rally">
+                            Winter Pep Rally
+                        </option>
+
+                        <option value="Spring Pep Rally">
+                            Spring Pep Rally
+                        </option>
+
+                        <option value="Other Pep Rally">
+                            Other Pep Rally
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Dance -->
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="category"
+                        id="dance"
+                        value="Dance"
+                    >
+
+                    <span>
+                        Dance
+                    </span>
+
+                </label>
+
+
+                <div
+                    id="danceDetails"
+                    class="sub-field"
+                >
+
+                    <select id="danceType">
+
+                        <option value="">
+                            Select which Dance
+                        </option>
+
+                        <option value="Semi-Formal">
+                            Semi-Formal
+                        </option>
+
+                        <option value="Prom">
+                            Prom
+                        </option>
+
+                        <option value="Other Dance">
+                            Other Dance
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Coffee House -->
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="category"
+                        id="coffeeHouse"
+                        value="Coffee House"
+                    >
+
+                    <span>
+                        Coffee House
+                    </span>
+
+                </label>
+
+
+                <div
+                    id="coffeeHouseDetails"
+                    class="sub-field"
+                >
+
+                    <select id="coffeeHouseType">
+
+                        <option value="">
+                            Select which Coffee House
+                        </option>
+
+                        <option value="Fall Coffee House">
+                            Fall Coffee House
+                        </option>
+
+                        <option value="Winter Coffee House">
+                            Winter Coffee House
+                        </option>
+
+                        <option value="Spring Coffee House">
+                            Spring Coffee House
+                        </option>
+
+                        <option value="Other Coffee House">
+                            Other Coffee House
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Sports -->
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="category"
+                        id="sports"
+                        value="Sports"
+                    >
+
+                    <span>
+                        Sports
+                    </span>
+
+                </label>
+
+
+                <div
+                    id="sportsDetails"
+                    class="sub-field"
+                >
+
+                    <span class="field-title">
+                        SEASON
+                    </span>
+
+
+                    <!-- Fall -->
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="sportsSeason"
+                            id="fallSports"
+                            value="Fall"
+                        >
+
+                        <span>
+                            Fall
+                        </span>
+
+                    </label>
+
+
+                    <!-- Winter -->
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="sportsSeason"
+                            id="winterSports"
+                            value="Winter"
+                        >
+
+                        <span>
+                            Winter
+                        </span>
+
+                    </label>
+
+
+                    <!-- Spring -->
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="sportsSeason"
+                            id="springSports"
+                            value="Spring"
+                        >
+
+                        <span>
+                            Spring
+                        </span>
+
+                    </label>
+
+
+                    <!-- Sport Type -->
+
+                    <div
+                        id="sportTypeDetails"
+                        class="sub-field"
+                    >
+
+                        <select id="sportType">
+
+                            <option value="">
+                                Select which sport
+                            </option>
+
+                            <option value="Basketball">
+                                Basketball
+                            </option>
+
+                            <option value="Volleyball">
+                                Volleyball
+                            </option>
+
+                            <option value="Soccer">
+                                Soccer
+                            </option>
+
+                            <option value="Football">
+                                Football
+                            </option>
+
+                            <option value="Track and Field">
+                                Track and Field
+                            </option>
+
+                            <option value="Badminton">
+                                Badminton
+                            </option>
+
+                            <option value="Cross Country">
+                                Cross Country
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 PHOTO UPLOAD
+                 ========================= -->
+
+            <div class="field">
+
+                <span class="field-title">
+                    PHOTO
+                </span>
+
+
+                <label class="upload-box">
+
+                    <span>
+                        Click to upload a photo
+                    </span>
+
+                    <input
+                        type="file"
+                        id="photo"
+                        accept="image/*"
+                    >
+
+                </label>
+
+            </div>
+
+
+            <!-- =========================
+                 CONSENT
+                 ========================= -->
+
+            <div class="field">
+
+                <span class="field-title">
+                    CONSENT
+                </span>
+
+
+                <!-- Consent 1 -->
+
+                <label class="consent">
+
+                    <input
+                        type="checkbox"
+                        id="consent"
+                    >
+
+                    <span>
+                        I confirm that I have permission to submit this photo to the St. John’s College Student Council.
+                    </span>
+
+                </label>
+
+
+                <br>
+
+
+                <!-- Consent 2 -->
+
+                <label class="consent">
+
+                    <input
+                        type="checkbox"
+                        id="schoolUse"
+                    >
+
+                    <span>
+                        I understand that this photo may be used for school-related Student Council purposes.
+                    </span>
+
+                </label>
+
+            </div>
+
+
+            <!-- =========================
+                 SUBMIT BUTTON
+                 ========================= -->
+
+            <button
+                type="button"
+                id="submitButton"
+            >
+                Submit
+            </button>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+         ========================= -->
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>

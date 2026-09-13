@@ -5,34 +5,38 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: white;
+    color: #111;
 }
 
-/* Green top section */
+
+/* =========================
+   GREEN TOP SECTION
+   ========================= */
 
 .hero {
     background-color: #5F6F52;
     color: white;
 
-    height: 65vh;
-    min-height: 450px;
+    height: 25vh;
+    min-height: 180px;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    text-align: center;
-    padding: 40px 20px;
+    padding: 30px 20px;
 }
 
 .hero-content {
     width: 100%;
     max-width: 750px;
-    margin: 0 auto;
-    text-align: center;
+    text-align: left;
 }
 
 .school-name {
-    margin: 0 0 25px;
+    opacity: 0.8;
+    margin: 0 0 6px;
     font-size: 17px;
     font-weight: 500;
 }
@@ -45,39 +49,145 @@ h1 {
 }
 
 .subtitle {
-    margin: 25px auto 0;
+    opacity: 0.85;
+    margin: 8px 0 0;
     max-width: 600px;
-    font-size: 19px;
-    line-height: 1.5;
+    font-size: 17px;
+    line-height: 1.4;
 }
 
 
-/* White bottom section */
+/* =========================
+   WHITE CONTENT SECTION
+   ========================= */
 
 .content {
-    height: 35vh;
-    min-height: 250px;
-
+    min-height: 75vh;
     background-color: white;
+
+    padding: 45px 20px 60px;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   FORM FIELD
+   ========================= */
+
+.field {
+    margin-bottom: 35px;
+}
+
+.field-title {
+    display: block;
+    margin-bottom: 15px;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   CATEGORY OPTIONS
+   ========================= */
+
+.option {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+    padding: 9px 0;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.option input {
+    width: 18px;
+    height: 18px;
+
+    accent-color: #5F6F52;
+}
+
+
+/* =========================
+   UPLOAD BOX
+   ========================= */
+
+.upload-box {
+    width: 100%;
+    min-height: 120px;
+
+    border: 2px dashed #C5C9C1;
+    border-radius: 8px;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    padding: 40px 20px;
+    color: #5F6F52;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.upload-box:hover {
+    border-color: #5F6F52;
+    background-color: #F8F9F6;
+}
+
+.upload-box input {
+    display: none;
 }
 
 
-/* Button */
+/* =========================
+   CONSENT
+   ========================= */
+
+.consent {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 12px;
+
+    font-size: 14px;
+    line-height: 1.5;
+
+    cursor: pointer;
+}
+
+.consent input {
+    width: 18px;
+    height: 18px;
+
+    margin-top: 2px;
+
+    accent-color: #5F6F52;
+}
+
+
+/* =========================
+   SUBMIT BUTTON
+   ========================= */
 
 button {
+    width: 100%;
+
     background-color: #5F6F52;
     color: white;
 
     border: none;
     border-radius: 6px;
 
-    padding: 15px 32px;
+    padding: 16px 32px;
 
     font-size: 17px;
     font-weight: 600;
@@ -89,16 +199,44 @@ button:hover {
     background-color: #4F5F44;
 }
 
-.hero {
-    background-color: #5F6F52;
-    color: white;
 
-    height: 65vh;
+/* =========================
+   MOBILE
+   ========================= */
 
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+@media (max-width: 600px) {
 
-    text-align: center;
-    padding: 100px 20px 40px;
+    h1 {
+        font-size: 36px;
+    }
+
+    .hero {
+        min-height: 170px;
+    }
+
+    .content {
+        padding: 35px 20px 50px;
+    }
 }
+
+/* PEP RALLY DETAILS */
+
+.sub-field {
+    display: none;
+    margin: 10px 0 25px 30px;
+}
+
+.sub-field select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #C5C9C1;
+    border-radius: 6px;
+    font-size: 15px;
+    background-color: white;
+}
+
+.sub-field select:focus {
+    outline: none;
+    border-color: #5F6F52;
+}
+

@@ -1,29 +1,407 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>SJC Student Council</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+    <!-- GREEN TOP -->
     <section class="hero">
-        <div class="hero-content">
-            <p class="school-name">St. John's College · Student Council</p>
 
-            <h1>Submit Your Photos</h1>
+        <div class="hero-content">
+
+            <p class="school-name">
+                St. John's College · Student Council
+            </p>
+
+            <h1>
+                Submit Your Photos
+            </h1>
 
             <p class="subtitle">
-                Share your favourite school memories with Student Council.
+                Share a favourite SJC memory.
             </p>
+
         </div>
+
     </section>
 
+
+    <!-- WHITE FORM -->
     <section class="content">
-        <a href="submit.html">
-            <button>Submit a Photo</button>
-        </a>
+
+        <div class="form-container">
+
+            <form id="photoForm">
+
+                <!-- PHOTO CATEGORY -->
+                <div class="field">
+
+                    <label class="field-title">
+                        PHOTO CATEGORY
+                    </label>
+
+
+                    <!-- PEP RALLY -->
+                    <label class="option">
+                        <input
+                            type="radio"
+                            name="category"
+                            value="Pep Rally"
+                            id="pepRally"
+                        >
+                        <span>Pep Rally</span>
+                    </label>
+
+
+                    <!-- PEP RALLY DETAILS -->
+                    <div
+                        id="pepRallyDetails"
+                        class="sub-field"
+                    >
+
+                        <label
+                            class="field-title"
+                            for="pepRallyType"
+                        >
+                            WHICH PEP RALLY?
+                        </label>
+
+                        <select id="pepRallyType">
+
+                            <option value="">
+                                Select a Pep Rally
+                            </option>
+
+                            <option value="Fall Pep Rally">
+                                Fall Pep Rally
+                            </option>
+
+                            <option value="Winter Pep Rally">
+                                Winter Pep Rally
+                            </option>
+
+                            <option value="Spring Pep Rally">
+                                Spring Pep Rally
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- DANCE -->
+                    <label class="option">
+                        <input
+                            type="radio"
+                            name="category"
+                            value="Dance"
+                            id="dance"
+                        >
+                        <span>Dance</span>
+                    </label>
+
+
+                    <!-- DANCE DETAILS -->
+                    <div
+                        id="danceDetails"
+                        class="sub-field"
+                    >
+
+                        <label
+                            class="field-title"
+                            for="danceType"
+                        >
+                            WHICH DANCE?
+                        </label>
+
+                        <select id="danceType">
+
+                            <option value="">
+                                Select a Dance
+                            </option>
+
+                            <option value="Colour Night">
+                                Colour Night
+                            </option>
+
+                            <option value="Fall Dance">
+                                Fall Dance
+                            </option>
+
+                            <option value="Semi Formal">
+                                Semi Formal
+                            </option>
+
+                            <option value="Spring Dance">
+                                Spring Dance
+                            </option>
+
+                            <option value="Prom">
+                                Prom
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- COFFEE HOUSE -->
+                    <label class="option">
+                        <input
+                            type="radio"
+                            name="category"
+                            value="Coffee House"
+                            id="coffeeHouse"
+                        >
+                        <span>Coffee House</span>
+                    </label>
+
+
+                    <!-- COFFEE HOUSE DETAILS -->
+                    <div
+                        id="coffeeHouseDetails"
+                        class="sub-field"
+                    >
+
+                        <label
+                            class="field-title"
+                            for="coffeeHouseType"
+                        >
+                            WHICH COFFEE HOUSE?
+                        </label>
+
+                        <select id="coffeeHouseType">
+
+                            <option value="">
+                                Select a Coffee House
+                            </option>
+
+                            <option value="Coffee House 1">
+                                Coffee House 1
+                            </option>
+
+                            <option value="Coffee House 2">
+                                Coffee House 2
+                            </option>
+
+                            <option value="Coffee House 3">
+                                Coffee House 3
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- SPORTS -->
+                    <label class="option">
+                        <input
+                            type="radio"
+                            name="category"
+                            value="Sports"
+                            id="sports"
+                        >
+                        <span>Sports</span>
+                    </label>
+
+
+                    <!-- SPORTS SEASON -->
+                    <div
+                        id="sportsDetails"
+                        class="sub-field"
+                    >
+
+                        <label class="field-title">
+                            WHICH SEASON?
+                        </label>
+
+
+                        <label class="option">
+                            <input
+                                type="radio"
+                                name="sportsSeason"
+                                value="Fall"
+                                id="fallSports"
+                            >
+                            <span>Fall</span>
+                        </label>
+
+
+                        <label class="option">
+                            <input
+                                type="radio"
+                                name="sportsSeason"
+                                value="Winter"
+                                id="winterSports"
+                            >
+                            <span>Winter</span>
+                        </label>
+
+
+                        <label class="option">
+                            <input
+                                type="radio"
+                                name="sportsSeason"
+                                value="Spring"
+                                id="springSports"
+                            >
+                            <span>Spring</span>
+                        </label>
+
+
+                        <!-- SPORT TYPE -->
+                        <div
+                            id="sportTypeDetails"
+                            class="sub-field"
+                        >
+
+                            <label
+                                class="field-title"
+                                for="sportType"
+                            >
+                                WHICH SPORT?
+                            </label>
+
+                            <select id="sportType">
+
+                                <option value="">
+                                    Select a Sport
+                                </option>
+
+                                <option value="Basketball">
+                                    Basketball
+                                </option>
+
+                                <option value="Volleyball">
+                                    Volleyball
+                                </option>
+
+                                <option value="Soccer">
+                                    Soccer
+                                </option>
+
+                                <option value="Football">
+                                    Football
+                                </option>
+
+                                <option value="Hockey">
+                                    Hockey
+                                </option>
+
+                                <option value="Track and Field">
+                                    Track and Field
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- OTHER -->
+                    <label class="option">
+                        <input
+                            type="radio"
+                            name="category"
+                            value="Other"
+                        >
+                        <span>Other</span>
+                    </label>
+
+                </div>
+
+
+                <!-- PHOTO UPLOAD -->
+                <div class="field">
+
+                    <label
+                        class="field-title"
+                        for="photo"
+                    >
+                        UPLOAD YOUR PHOTO
+                    </label>
+
+                    <label class="upload-box">
+
+                        <span id="fileText">
+                            Choose a photo
+                        </span>
+
+                        <input
+                            type="file"
+                            id="photo"
+                            accept="image/*"
+                            required
+                        >
+
+                    </label>
+
+                </div>
+
+
+                <!-- CONSENT -->
+                <div class="field">
+
+                    <label class="field-title">
+                        CONSENT
+                    </label>
+
+                    <label class="consent">
+
+                        <input
+                            type="checkbox"
+                            id="consent"
+                            required
+                        >
+
+                        <span>
+                            I agree that Student Council may review
+                            and use this submission for school-related purposes.
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+                <button
+                    type="button"
+                    id="submitButton"
+                >
+                    SUBMIT PHOTO
+                </button>
+
+                <p id="message"></p>
+
+            </form>
+
+        </div>
+
     </section>
+
+
+    <script src="script.js"></script>
 
 </body>
 </html>

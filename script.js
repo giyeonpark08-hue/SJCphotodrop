@@ -1,30 +1,272 @@
 const submitButton = document.getElementById("submitButton");
+
 const consent = document.getElementById("consent");
-const category = document.getElementById("category");
-const description = document.getElementById("description");
+const schoolUse = document.getElementById("schoolUse");
+
 const photo = document.getElementById("photo");
+
+const categoryOptions = document.querySelectorAll(
+    'input[name="category"]'
+);
+
+
+/* =========================
+   CATEGORY ELEMENTS
+   ========================= */
+
+const pepRally = document.getElementById("pepRally");
+const pepRallyDetails = document.getElementById("pepRallyDetails");
+const pepRallyType = document.getElementById("pepRallyType");
+
+const dance = document.getElementById("dance");
+const danceDetails = document.getElementById("danceDetails");
+const danceType = document.getElementById("danceType");
+
+const coffeeHouse = document.getElementById("coffeeHouse");
+const coffeeHouseDetails = document.getElementById("coffeeHouseDetails");
+const coffeeHouseType = document.getElementById("coffeeHouseType");
+
+const sports = document.getElementById("sports");
+const sportsDetails = document.getElementById("sportsDetails");
+
+const fallSports = document.getElementById("fallSports");
+const winterSports = document.getElementById("winterSports");
+const springSports = document.getElementById("springSports");
+
+const sportTypeDetails = document.getElementById("sportTypeDetails");
+const sportType = document.getElementById("sportType");
+
+
+/* =========================
+   CATEGORY SELECTION
+   ========================= */
+
+categoryOptions.forEach(option => {
+
+    option.addEventListener("change", function () {
+
+
+        /* =========================
+           PEP RALLY
+           ========================= */
+
+        if (pepRally.checked) {
+
+            pepRallyDetails.style.display = "block";
+            pepRallyType.required = true;
+
+        } else {
+
+            pepRallyDetails.style.display = "none";
+            pepRallyType.required = false;
+            pepRallyType.value = "";
+
+        }
+
+
+        /* =========================
+           DANCE
+           ========================= */
+
+        if (dance.checked) {
+
+            danceDetails.style.display = "block";
+            danceType.required = true;
+
+        } else {
+
+            danceDetails.style.display = "none";
+            danceType.required = false;
+            danceType.value = "";
+
+        }
+
+
+        /* =========================
+           COFFEE HOUSE
+           ========================= */
+
+        if (coffeeHouse.checked) {
+
+            coffeeHouseDetails.style.display = "block";
+            coffeeHouseType.required = true;
+
+        } else {
+
+            coffeeHouseDetails.style.display = "none";
+            coffeeHouseType.required = false;
+            coffeeHouseType.value = "";
+
+        }
+
+
+        /* =========================
+           SPORTS
+           ========================= */
+
+        if (sports.checked) {
+
+            sportsDetails.style.display = "block";
+
+        } else {
+
+            sportsDetails.style.display = "none";
+
+            sportTypeDetails.style.display = "none";
+
+            fallSports.checked = false;
+            winterSports.checked = false;
+            springSports.checked = false;
+
+            sportType.required = false;
+            sportType.value = "";
+
+        }
+
+    });
+
+});
+
+
+/* =========================
+   SPORTS SEASON
+   ========================= */
+
+const seasonOptions = document.querySelectorAll(
+    'input[name="sportsSeason"]'
+);
+
+seasonOptions.forEach(option => {
+
+    option.addEventListener("change", function () {
+
+        sportTypeDetails.style.display = "block";
+
+        sportType.required = true;
+
+    });
+
+});
+
+
+/* =========================
+   SUBMIT
+   ========================= */
 
 submitButton.addEventListener("click", function () {
 
-    if (category.value === "") {
+
+    /* CATEGORY CHECK */
+
+    const selectedCategory = document.querySelector(
+        'input[name="category"]:checked'
+    );
+
+    if (!selectedCategory) {
+
         alert("Please select a category.");
+
         return;
+
     }
 
-    if (description.value.trim() === "") {
-        alert("Please enter a description.");
+
+    /* PEP RALLY CHECK */
+
+    if (
+        selectedCategory.value === "Pep Rally" &&
+        pepRallyType.value === ""
+    ) {
+
+        alert("Please select which Pep Rally.");
+
         return;
+
     }
 
-    if (!consent.checked) {
-        alert("Please agree before submitting.");
+
+    /* DANCE CHECK */
+
+    if (
+        selectedCategory.value === "Dance" &&
+        danceType.value === ""
+    ) {
+
+        alert("Please select which Dance.");
+
         return;
+
     }
+
+
+    /* COFFEE HOUSE CHECK */
+
+    if (
+        selectedCategory.value === "Coffee House" &&
+        coffeeHouseType.value === ""
+    ) {
+
+        alert("Please select which Coffee House.");
+
+        return;
+
+    }
+
+
+    /* SPORTS CHECK */
+
+    if (selectedCategory.value === "Sports") {
+
+        const selectedSeason = document.querySelector(
+            'input[name="sportsSeason"]:checked'
+        );
+
+
+        if (!selectedSeason) {
+
+            alert("Please select a season.");
+
+            return;
+
+        }
+
+
+        if (sportType.value === "") {
+
+            alert("Please select which sport.");
+
+            return;
+
+        }
+
+    }
+
+
+    /* CONSENT CHECK */
+
+    if (!consent.checked || !schoolUse.checked) {
+
+        alert(
+            "Please agree to both consent statements before submitting."
+        );
+
+        return;
+
+    }
+
+
+    /* PHOTO CHECK */
 
     if (photo.files.length === 0) {
+
         alert("Please upload a photo.");
+
         return;
+
     }
+
+
+    /* SUCCESS */
 
     alert("Submission received!");
 
