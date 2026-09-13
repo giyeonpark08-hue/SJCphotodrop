@@ -12,9 +12,7 @@
 
 <body>
 
-    <!-- =========================
-         GREEN TOP SECTION
-         ========================= -->
+    <!-- GREEN TOP SECTION -->
 
     <section class="hero">
 
@@ -37,18 +35,14 @@
     </section>
 
 
-    <!-- =========================
-         WHITE CONTENT SECTION
-         ========================= -->
+    <!-- WHITE CONTENT SECTION -->
 
     <main class="content">
 
         <div class="form-container">
 
 
-            <!-- =========================
-                 CATEGORY
-                 ========================= -->
+            <!-- CATEGORY -->
 
             <div class="field">
 
@@ -98,10 +92,6 @@
                             Spring Pep Rally
                         </option>
 
-                        <option value="Other Pep Rally">
-                            Other Pep Rally
-                        </option>
-
                     </select>
 
                 </div>
@@ -109,48 +99,56 @@
 
                 <!-- Dance -->
 
-                <label class="option">
+<label class="option">
 
-                    <input
-                        type="radio"
-                        name="category"
-                        id="dance"
-                        value="Dance"
-                    >
+    <input
+        type="radio"
+        name="category"
+        id="dance"
+        value="Dance"
+    >
 
-                    <span>
-                        Dance
-                    </span>
+    <span>
+        Dance
+    </span>
 
-                </label>
+</label>
 
 
-                <div
-                    id="danceDetails"
-                    class="sub-field"
-                >
+<div
+    id="danceDetails"
+    class="sub-field"
+>
 
-                    <select id="danceType">
+    <select id="danceType">
 
-                        <option value="">
-                            Select which Dance
-                        </option>
+        <option value="">
+            Select which Dance
+        </option>
 
-                        <option value="Semi-Formal">
-                            Semi-Formal
-                        </option>
+        <option value="Colour Night">
+            Colour Night
+        </option>
 
-                        <option value="Prom">
-                            Prom
-                        </option>
+        <option value="Fall Dance">
+            Fall Dance
+        </option>
 
-                        <option value="Other Dance">
-                            Other Dance
-                        </option>
+        <option value="Semi-Formal">
+            Semi-Formal
+        </option>
 
-                    </select>
+        <option value="Spring Dance">
+            Spring Dance
+        </option>
 
-                </div>
+        <option value="Prom">
+            Prom
+        </option>
+
+    </select>
+
+</div>
 
 
                 <!-- Coffee House -->
@@ -182,20 +180,12 @@
                             Select which Coffee House
                         </option>
 
-                        <option value="Fall Coffee House">
-                            Fall Coffee House
-                        </option>
-
-                        <option value="Winter Coffee House">
-                            Winter Coffee House
+                        <option value="Christmas Coffee House">
+                            Christmas Coffee House
                         </option>
 
                         <option value="Spring Coffee House">
                             Spring Coffee House
-                        </option>
-
-                        <option value="Other Coffee House">
-                            Other Coffee House
                         </option>
 
                     </select>
@@ -203,111 +193,194 @@
                 </div>
 
 
+                <!-- Sports -->
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="category"
+                        id="sports"
+                        value="Sports"
+                    >
+
+                    <span>
+                        Sports
+                    </span>
+
+                </label>
+
+
+                <!-- Sports Details -->
+
                 <div
-    id="sportsDetails"
-    class="sub-field"
->
-    <span class="field-title">
-        SEASON
+                    id="sportsDetails"
+                    class="sub-field"
+                >
+
+                    <span class="field-title">
+                        SEASON
+                    </span>
+
+
+                    <!-- Fall -->
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="sportsSeason"
+                            id="fallSports"
+                            value="Fall"
+                        >
+
+                        <span>
+                            Fall
+                        </span>
+
+                    </label>
+
+
+                    <!-- Winter -->
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="sportsSeason"
+                            id="winterSports"
+                            value="Winter"
+                        >
+
+                        <span>
+                            Winter
+                        </span>
+
+                    </label>
+
+
+                    <!-- Spring -->
+
+                    <label class="option">
+
+                        <input
+                            type="radio"
+                            name="sportsSeason"
+                            id="springSports"
+                            value="Spring"
+                        >
+
+                        <span>
+                            Spring
+                        </span>
+
+                    </label>
+<label class="option">
+
+    <input
+        type="radio"
+        name="sportsSeason"
+        id="otherSeasonSports"
+        value="Other"
+    >
+
+    <span>
+        Other
     </span>
 
-    <label class="option">
-        <input
-            type="radio"
-            name="sportsSeason"
-            id="fallSports"
-            value="Fall"
-        >
-        <span>
-            Fall
-        </span>
-    </label>
+</label>
 
-    <label class="option">
-        <input
-            type="radio"
-            name="sportsSeason"
-            id="winterSports"
-            value="Winter"
-        >
-        <span>
-            Winter
-        </span>
-    </label>
+                    <!-- Level -->
 
-    <label class="option">
-        <input
-            type="radio"
-            name="sportsSeason"
-            id="springSports"
-            value="Spring"
-        >
-        <span>
-            Spring
-        </span>
-    </label>
+                    <div
+                        id="sportDivisionDetails"
+                        class="sub-field"
+                    >
 
-    <div
-        id="sportDivisionDetails"
-        class="sub-field"
-    >
-        <span class="field-title">
-            LEVEL
-        </span>
-
-        <label class="option">
-            <input
-                type="radio"
-                name="sportsDivision"
-                id="juniorSports"
-                value="Junior"
-            >
-            <span>
-                Junior
-            </span>
-        </label>
-
-        <label class="option">
-            <input
-                type="radio"
-                name="sportsDivision"
-                id="seniorSports"
-                value="Senior"
-            >
-            <span>
-                Senior
-            </span>
-        </label>
-
-        <label class="option">
-            <input
-                type="radio"
-                name="sportsDivision"
-                id="otherSports"
-                value="Other"
-            >
-            <span>
-                Other
-            </span>
-        </label>
-
-        <div
-            id="sportTypeDetails"
-            class="sub-field"
-        >
-            <select id="sportType">
-                <option value="">
-                    Select which sport
-                </option>
-            </select>
-        </div>
-    </div>
-</div>
+                        <span class="field-title">
+                            LEVEL
+                        </span>
 
 
-            <!-- =========================
-                 PHOTO UPLOAD
-                 ========================= -->
+                        <!-- Junior -->
+
+                        <label class="option">
+
+                            <input
+                                type="radio"
+                                name="sportsDivision"
+                                id="juniorSports"
+                                value="Junior"
+                            >
+
+                            <span>
+                                Junior
+                            </span>
+
+                        </label>
+
+
+                        <!-- Senior -->
+
+                        <label class="option">
+
+                            <input
+                                type="radio"
+                                name="sportsDivision"
+                                id="seniorSports"
+                                value="Senior"
+                            >
+
+                            <span>
+                                Senior
+                            </span>
+
+                        </label>
+
+
+                        <!-- Other -->
+
+                        <label class="option">
+
+                            <input
+                                type="radio"
+                                name="sportsDivision"
+                                id="otherSports"
+                                value="Other"
+                            >
+
+                            <span>
+                                Other
+                            </span>
+
+                        </label>
+
+
+                        <!-- Sport -->
+
+                        <div
+                            id="sportTypeDetails"
+                            class="sub-field"
+                        >
+
+                            <select id="sportType">
+
+                                <option value="">
+                                    Select which sport
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHOTO UPLOAD -->
 
             <div class="field">
 
@@ -320,7 +393,9 @@
 
                     <span>
                         Click to upload a photo
-                    </span>
+                    </span><span id="photoLabel">
+    Click to upload a photo
+</span>
 
                     <input
                         type="file"
@@ -333,9 +408,7 @@
             </div>
 
 
-            <!-- =========================
-                 CONSENT
-                 ========================= -->
+            <!-- CONSENT -->
 
             <div class="field">
 
@@ -381,9 +454,7 @@
             </div>
 
 
-            <!-- =========================
-                 SUBMIT BUTTON
-                 ========================= -->
+            <!-- SUBMIT BUTTON -->
 
             <button
                 type="button"
@@ -392,10 +463,24 @@
                 Submit
             </button>
 
-            <div id="successMessage" class="success-message" style="display: none;">
-    <h2>Thank You! 🎉</h2>
-    <p>Your photo has been submitted successfully.</p>
-</div>
+
+            <!-- SUCCESS MESSAGE -->
+
+            <div
+                id="successMessage"
+                class="success-message"
+                style="display: none;"
+            >
+
+                <h2>
+                    Thank You! 🎉
+                </h2>
+
+                <p>
+                    Your photo has been submitted successfully.
+                </p>
+
+            </div>
 
 
         </div>
@@ -403,9 +488,7 @@
     </main>
 
 
-    <!-- =========================
-         JAVASCRIPT
-         ========================= -->
+    <!-- JAVASCRIPT -->
 
     <script src="script.js"></script>
 
