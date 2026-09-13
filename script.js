@@ -258,6 +258,14 @@ submitButton.addEventListener("click", function () {
 
        /* PHOTO CHECK */
 
+       if (photo.files[0].size > 10 * 1024 * 1024) {
+
+    alert("Photo must be 10 MB or smaller.");
+
+    return;
+
+}
+
     if (photo.files.length === 0) {
 
         alert("Please upload a photo.");
