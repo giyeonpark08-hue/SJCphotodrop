@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,7 +74,7 @@
                     class="sub-field"
                 >
 
-                    <select id="pepRally">
+                    <select id="pepRallyType">
 
                         <option value="">
                             Select which Pep Rally
@@ -121,7 +120,7 @@
                     class="sub-field"
                 >
 
-                    <select id="dance">
+                    <select id="danceType">
 
                         <option value="">
                             Select which Dance
@@ -175,7 +174,7 @@
                     class="sub-field"
                 >
 
-                    <select id="coffeeHouse">
+                    <select id="coffeeHouseType">
 
                         <option value="">
                             Select which Coffee House
@@ -314,7 +313,7 @@
 
                             <input
                                 type="radio"
-                                name="sportDivision"
+                                name="sportsDivision"
                                 id="juniorSports"
                                 value="Junior"
                             >
@@ -332,7 +331,7 @@
 
                             <input
                                 type="radio"
-                                name="sportDivision"
+                                name="sportsDivision"
                                 id="seniorSports"
                                 value="Senior"
                             >
@@ -350,7 +349,7 @@
 
                             <input
                                 type="radio"
-                                name="sportDivision"
+                                name="sportsDivision"
                                 id="otherSports"
                                 value="Other"
                             >
@@ -386,32 +385,28 @@
             </div>
 
 
-            <!-- PHOTO UPLOAD -->
-
             <div class="field">
 
-                <span class="field-title">
-                    PHOTO
-                </span>
+    <span class="field-title">
+        PHOTO
+    </span>
 
+    <label class="upload-box">
+        <span>
+            Click to upload photos
+        </span>
 
-                <label class="upload-box">
+        <input
+            type="file"
+            id="photo"
+            accept="image/*"
+            multiple
+        >
+    </label>
 
-                    <span id="photoLabel">
-                        Click to upload photos
-                    </span>
+    <div id="fileList" class="file-list"></div>
 
-                    <input
-                        type="file"
-                        id="photo"
-                        accept="image/*"
-                        multiple
-                    >
-
-                </label>
-
-            </div>
-
+</div>
 
             <!-- CONSENT -->
 
@@ -422,8 +417,6 @@
                 </span>
 
 
-                <!-- Consent 1 -->
-
                 <label class="consent">
 
                     <input
@@ -432,5 +425,67 @@
                     >
 
                     <span>
-                        I confirm that I have permission to submit this pho
-```
+                        I confirm that I have permission to submit this photo to the St. John’s College Student Council.
+                    </span>
+
+                </label>
+
+
+                <br>
+
+
+                <label class="consent">
+
+                    <input
+                        type="checkbox"
+                        id="schoolUse"
+                    >
+
+                    <span>
+                        I understand that this photo may be used for school-related Student Council purposes.
+                    </span>
+
+                </label>
+
+            </div>
+
+
+            <!-- SUBMIT BUTTON -->
+
+            <button
+                type="button"
+                id="submitButton"
+            >
+                Submit
+            </button>
+
+
+            <!-- SUCCESS MESSAGE -->
+
+            <div
+                id="successMessage"
+                class="success-message"
+                style="display: none;"
+            >
+
+                <h2>
+                    Thank You! 🎉
+                </h2>
+
+                <p>
+                    Your photo has been submitted successfully.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
