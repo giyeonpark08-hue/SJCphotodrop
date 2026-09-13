@@ -339,6 +339,8 @@ submitButton.addEventListener("click", function () {
 
        .then(() => {
 
+    submitButton.style.display = "none";
+
     document.getElementById("successMessage").style.display = "block";
 
 })
