@@ -267,3 +267,10 @@ button:hover {
     margin: 0;
     color: #333;
 }
+
+.upload-box {
+    white-space: normal;
+    text-align: center;
+    line-height: 1.6;
+}
+

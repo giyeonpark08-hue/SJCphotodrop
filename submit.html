@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,7 +75,7 @@
                     class="sub-field"
                 >
 
-                    <select id="pepRallyType">
+                    <select id="pepRally">
 
                         <option value="">
                             Select which Pep Rally
@@ -99,56 +100,56 @@
 
                 <!-- Dance -->
 
-<label class="option">
+                <label class="option">
 
-    <input
-        type="radio"
-        name="category"
-        id="dance"
-        value="Dance"
-    >
+                    <input
+                        type="radio"
+                        name="category"
+                        id="dance"
+                        value="Dance"
+                    >
 
-    <span>
-        Dance
-    </span>
+                    <span>
+                        Dance
+                    </span>
 
-</label>
+                </label>
 
 
-<div
-    id="danceDetails"
-    class="sub-field"
->
+                <div
+                    id="danceDetails"
+                    class="sub-field"
+                >
 
-    <select id="danceType">
+                    <select id="dance">
 
-        <option value="">
-            Select which Dance
-        </option>
+                        <option value="">
+                            Select which Dance
+                        </option>
 
-        <option value="Colour Night">
-            Colour Night
-        </option>
+                        <option value="Colour Night">
+                            Colour Night
+                        </option>
 
-        <option value="Fall Dance">
-            Fall Dance
-        </option>
+                        <option value="Fall Dance">
+                            Fall Dance
+                        </option>
 
-        <option value="Semi-Formal">
-            Semi-Formal
-        </option>
+                        <option value="Semi-Formal">
+                            Semi-Formal
+                        </option>
 
-        <option value="Spring Dance">
-            Spring Dance
-        </option>
+                        <option value="Spring Dance">
+                            Spring Dance
+                        </option>
 
-        <option value="Prom">
-            Prom
-        </option>
+                        <option value="Prom">
+                            Prom
+                        </option>
 
-    </select>
+                    </select>
 
-</div>
+                </div>
 
 
                 <!-- Coffee House -->
@@ -174,7 +175,7 @@
                     class="sub-field"
                 >
 
-                    <select id="coffeeHouseType">
+                    <select id="coffeeHouse">
 
                         <option value="">
                             Select which Coffee House
@@ -211,7 +212,7 @@
                 </label>
 
 
-                <!-- Sports Details -->
+                <!-- SPORTS DETAILS -->
 
                 <div
                     id="sportsDetails"
@@ -275,22 +276,27 @@
                         </span>
 
                     </label>
-<label class="option">
 
-    <input
-        type="radio"
-        name="sportsSeason"
-        id="otherSeasonSports"
-        value="Other"
-    >
 
-    <span>
-        Other
-    </span>
+                    <!-- Other -->
 
-</label>
+                    <label class="option">
 
-                    <!-- Level -->
+                        <input
+                            type="radio"
+                            name="sportsSeason"
+                            id="otherSeasonSports"
+                            value="Other"
+                        >
+
+                        <span>
+                            Other
+                        </span>
+
+                    </label>
+
+
+                    <!-- LEVEL -->
 
                     <div
                         id="sportDivisionDetails"
@@ -308,7 +314,7 @@
 
                             <input
                                 type="radio"
-                                name="sportsDivision"
+                                name="sportDivision"
                                 id="juniorSports"
                                 value="Junior"
                             >
@@ -326,7 +332,7 @@
 
                             <input
                                 type="radio"
-                                name="sportsDivision"
+                                name="sportDivision"
                                 id="seniorSports"
                                 value="Senior"
                             >
@@ -344,7 +350,7 @@
 
                             <input
                                 type="radio"
-                                name="sportsDivision"
+                                name="sportDivision"
                                 id="otherSports"
                                 value="Other"
                             >
@@ -356,7 +362,7 @@
                         </label>
 
 
-                        <!-- Sport -->
+                        <!-- SPORT -->
 
                         <div
                             id="sportTypeDetails"
@@ -391,16 +397,15 @@
 
                 <label class="upload-box">
 
-                    <span>
-                        Click to upload a photo
-                    </span><span id="photoLabel">
-    Click to upload a photo
-</span>
+                    <span id="photoLabel">
+                        Click to upload photos
+                    </span>
 
                     <input
                         type="file"
                         id="photo"
                         accept="image/*"
+                        multiple
                     >
 
                 </label>
@@ -427,71 +432,5 @@
                     >
 
                     <span>
-                        I confirm that I have permission to submit this photo to the St. John’s College Student Council.
-                    </span>
-
-                </label>
-
-
-                <br>
-
-
-                <!-- Consent 2 -->
-
-                <label class="consent">
-
-                    <input
-                        type="checkbox"
-                        id="schoolUse"
-                    >
-
-                    <span>
-                        I understand that this photo may be used for school-related Student Council purposes.
-                    </span>
-
-                </label>
-
-            </div>
-
-
-            <!-- SUBMIT BUTTON -->
-
-            <button
-                type="button"
-                id="submitButton"
-            >
-                Submit
-            </button>
-
-
-            <!-- SUCCESS MESSAGE -->
-
-            <div
-                id="successMessage"
-                class="success-message"
-                style="display: none;"
-            >
-
-                <h2>
-                    Thank You! 🎉
-                </h2>
-
-                <p>
-                    Your photo has been submitted successfully.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </main>
-
-
-    <!-- JAVASCRIPT -->
-
-    <script src="script.js"></script>
-
-</body>
-
-</html>
+                        I confirm that I have permission to submit this pho
+```
