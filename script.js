@@ -331,11 +331,11 @@ submitButton.addEventListener("click", function () {
 
         .then(() => {
 
-            alert("Submission received!");
+    alert("Thank you! Your photo has been submitted.");
 
-            location.reload();
+    location.reload();
 
-        })
+})
 
         .catch(error => {
 
