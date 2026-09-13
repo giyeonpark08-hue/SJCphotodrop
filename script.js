@@ -61,11 +61,6 @@ const photoInput =
         "photo"
     );
 
-const photoLabel =
-    document.getElementById(
-        "photoLabel"
-    );
-
 const submitButton =
     document.getElementById(
         "submitButton"
@@ -221,7 +216,9 @@ sportDivisionInputs.forEach(input => {
                 this.value;
 
 
+            // =========================
             // FALL
+            // =========================
 
             if (
                 season === "Fall"
@@ -304,7 +301,9 @@ sportDivisionInputs.forEach(input => {
             }
 
 
+            // =========================
             // WINTER
+            // =========================
 
             if (
                 season === "Winter"
@@ -375,7 +374,9 @@ sportDivisionInputs.forEach(input => {
             }
 
 
+            // =========================
             // SPRING
+            // =========================
 
             if (
                 season === "Spring"
@@ -443,22 +444,30 @@ sportDivisionInputs.forEach(input => {
 // PHOTO FILES
 // =========================
 
-const selectedFiles = new DataTransfer();
+const selectedFiles =
+    new DataTransfer();
+
 
 photoInput.addEventListener(
     "change",
     function () {
 
-        Array.from(this.files).forEach(
+        Array.from(
+            this.files
+        ).forEach(
             file => {
 
-                selectedFiles.items.add(file);
+                selectedFiles.items.add(
+                    file
+                );
 
             }
         );
 
+
         photoInput.files =
             selectedFiles.files;
+
 
         updateFileList();
 
@@ -473,7 +482,9 @@ function updateFileList() {
             "fileList"
         );
 
+
     fileList.innerHTML = "";
+
 
     Array.from(
         selectedFiles.files
@@ -481,34 +492,50 @@ function updateFileList() {
         (file, index) => {
 
             const item =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
+
 
             item.className =
                 "file-item";
 
+
             const fileName =
-                document.createElement("span");
+                document.createElement(
+                    "span"
+                );
+
 
             fileName.textContent =
                 file.name;
 
+
             const removeButton =
-                document.createElement("button");
+                document.createElement(
+                    "button"
+                );
+
 
             removeButton.type =
                 "button";
 
+
             removeButton.textContent =
                 "Remove";
+
 
             removeButton.style.width =
                 "auto";
 
+
             removeButton.style.padding =
                 "6px 12px";
 
+
             removeButton.style.fontSize =
                 "13px";
+
 
             removeButton.addEventListener(
                 "click",
@@ -517,64 +544,91 @@ function updateFileList() {
                     const newFiles =
                         new DataTransfer();
 
+
                     Array.from(
                         selectedFiles.files
                     ).forEach(
-                        (currentFile, currentIndex) => {
+                        (
+                            currentFile,
+                            currentIndex
+                        ) => {
 
                             if (
-                                currentIndex !== index
+                                currentIndex !==
+                                index
                             ) {
+
                                 newFiles.items.add(
                                     currentFile
                                 );
+
                             }
 
                         }
                     );
 
+
                     selectedFiles.items.clear();
+
 
                     Array.from(
                         newFiles.files
                     ).forEach(
                         file => {
-                            selectedFiles.items.add(file);
+
+                            selectedFiles.items.add(
+                                file
+                            );
+
                         }
                     );
 
+
                     photoInput.files =
                         selectedFiles.files;
+
 
                     updateFileList();
 
                 }
             );
 
+
             item.style.display =
                 "flex";
+
 
             item.style.justifyContent =
                 "space-between";
 
+
             item.style.alignItems =
                 "center";
+
 
             item.style.gap =
                 "10px";
 
-            item.appendChild(fileName);
+
+            item.appendChild(
+                fileName
+            );
+
 
             item.appendChild(
                 removeButton
             );
 
-            fileList.appendChild(item);
+
+            fileList.appendChild(
+                item
+            );
 
         }
     );
 
 }
+
 
 // =========================
 // READ PHOTO
@@ -623,7 +677,9 @@ submitButton.addEventListener(
 
         try {
 
+            // =========================
             // CATEGORY
+            // =========================
 
             const category =
                 document.querySelector(
@@ -642,12 +698,15 @@ submitButton.addEventListener(
             }
 
 
+            // =========================
             // CONSENT
+            // =========================
 
             const consent =
                 document.getElementById(
                     "consent"
                 );
+
 
             const schoolUse =
                 document.getElementById(
@@ -669,10 +728,14 @@ submitButton.addEventListener(
             }
 
 
+            // =========================
             // SUBCATEGORY
+            // =========================
 
             let subCategory = "";
 
+
+            // PEP RALLY
 
             if (
                 category.value ===
@@ -698,6 +761,8 @@ submitButton.addEventListener(
             }
 
 
+            // DANCE
+
             if (
                 category.value ===
                 "Dance"
@@ -722,6 +787,8 @@ submitButton.addEventListener(
             }
 
 
+            // COFFEE HOUSE
+
             if (
                 category.value ===
                 "Coffee House"
@@ -745,6 +812,8 @@ submitButton.addEventListener(
 
             }
 
+
+            // SPORTS
 
             if (
                 category.value ===
@@ -823,12 +892,28 @@ submitButton.addEventListener(
             }
 
 
+            // CATEGORY OTHER
+
+            if (
+                category.value ===
+                "Other"
+            ) {
+
+                subCategory =
+                    "Other";
+
+            }
+
+
+            // =========================
             // PHOTOS
+            // =========================
 
             const files =
-    Array.from(
-        selectedFiles.files
-    );
+                Array.from(
+                    selectedFiles.files
+                );
+
 
             if (
                 files.length === 0
@@ -843,13 +928,17 @@ submitButton.addEventListener(
             }
 
 
+            // =========================
             // SIZE LIMITS
+            // =========================
 
             const maxFileSize =
                 10 * 1024 * 1024;
 
+
             const maxTotalSize =
                 20 * 1024 * 1024;
+
 
             let totalSize = 0;
 
@@ -893,16 +982,21 @@ submitButton.addEventListener(
             }
 
 
+            // =========================
             // BUTTON
+            // =========================
 
             submitButton.disabled =
                 true;
+
 
             submitButton.textContent =
                 "Submitting...";
 
 
+            // =========================
             // CONVERT PHOTOS
+            // =========================
 
             const photos =
                 await Promise.all(
@@ -935,7 +1029,9 @@ submitButton.addEventListener(
                 );
 
 
+            // =========================
             // DATA
+            // =========================
 
             const submission = {
 
@@ -951,7 +1047,9 @@ submitButton.addEventListener(
             };
 
 
+            // =========================
             // SEND
+            // =========================
 
             await fetch(
                 scriptURL,
@@ -965,10 +1063,13 @@ submitButton.addEventListener(
             );
 
 
+            // =========================
             // SUCCESS
+            // =========================
 
             submitButton.style.display =
                 "none";
+
 
             successMessage.style.display =
                 "block";
@@ -988,6 +1089,7 @@ submitButton.addEventListener(
 
             submitButton.disabled =
                 false;
+
 
             submitButton.textContent =
                 "Submit";
