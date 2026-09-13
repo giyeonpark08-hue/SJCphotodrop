@@ -256,7 +256,7 @@ submitButton.addEventListener("click", function () {
     }
 
 
-    /* PHOTO CHECK */
+       /* PHOTO CHECK */
 
     if (photo.files.length === 0) {
 
@@ -267,87 +267,89 @@ submitButton.addEventListener("click", function () {
     }
 
 
-   /* =========================
-   SEND SUBMISSION
-   ========================= */
+    /* =========================
+       SEND SUBMISSION
+       ========================= */
 
-const selectedSeason = document.querySelector(
-    'input[name="sportsSeason"]:checked'
-);
+    const selectedSeason = document.querySelector(
+        'input[name="sportsSeason"]:checked'
+    );
 
-let subCategory = "";
+    let subCategory = "";
 
-if (selectedCategory.value === "Pep Rally") {
+    if (selectedCategory.value === "Pep Rally") {
 
-    subCategory = pepRallyType.value;
+        subCategory = pepRallyType.value;
 
-} else if (selectedCategory.value === "Dance") {
+    } else if (selectedCategory.value === "Dance") {
 
-    subCategory = danceType.value;
+        subCategory = danceType.value;
 
-} else if (selectedCategory.value === "Coffee House") {
+    } else if (selectedCategory.value === "Coffee House") {
 
-    subCategory = coffeeHouseType.value;
+        subCategory = coffeeHouseType.value;
 
-} else if (selectedCategory.value === "Sports") {
+    } else if (selectedCategory.value === "Sports") {
 
-    subCategory =
-        selectedSeason.value + " - " + sportType.value;
+        subCategory =
+            selectedSeason.value + " - " + sportType.value;
 
-}
-
-
-/* PHOTO DATA */
-
-const file = photo.files[0];
-
-const reader = new FileReader();
+    }
 
 
-reader.onload = function () {
+    /* PHOTO */
 
-    const submission = {
+    const file = photo.files[0];
 
-        category: selectedCategory.value,
+    const reader = new FileReader();
 
-        subCategory: subCategory,
 
-        photoName: file.name,
+    reader.onload = function () {
 
-        photoType: file.type,
+        const submission = {
 
-        photoData: reader.result
+            category: selectedCategory.value,
+
+            subCategory: subCategory,
+
+            photoName: file.name,
+
+            photoType: file.type,
+
+            photoData: reader.result
+
+        };
+
+
+        fetch(scriptURL, {
+
+            method: "POST",
+
+            body: JSON.stringify(submission)
+
+        })
+
+        .then(() => {
+
+            alert("Submission received!");
+
+            location.reload();
+
+        })
+
+        .catch(error => {
+
+            console.error(error);
+
+            alert(
+                "Something went wrong. Please try again."
+            );
+
+        });
 
     };
 
 
-    fetch(scriptURL, {
-
-        method: "POST",
-
-        body: JSON.stringify(submission)
-
-    })
-    .then(() => {
-
-        alert("Submission received!");
-
-        location.reload();
-
-    })
-    .catch(error => {
-
-        console.error(error);
-
-        alert(
-            "Something went wrong. Please try again."
-        );
-
-    });
-
-};
-
-
-reader.readAsDataURL(file);
+    reader.readAsDataURL(file);
 
 });
