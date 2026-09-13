@@ -102,13 +102,18 @@ h1 {
     align-items: center;
 
     gap: 12px;
-    padding: 9px 0;
+    padding: 12px 14px;
 
     font-size: 16px;
 
     cursor: pointer;
+
+    border-radius: 6px;
 }
 
+.option:hover {
+    background-color: #F8F9F6;
+}
 .option input {
     width: 18px;
     height: 18px;
