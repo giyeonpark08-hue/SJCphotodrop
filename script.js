@@ -478,7 +478,7 @@ function updateFileList() {
     Array.from(
         selectedFiles.files
     ).forEach(
-        file => {
+        (file, index) => {
 
             const item =
                 document.createElement("div");
@@ -486,8 +486,88 @@ function updateFileList() {
             item.className =
                 "file-item";
 
-            item.textContent =
+            const fileName =
+                document.createElement("span");
+
+            fileName.textContent =
                 file.name;
+
+            const removeButton =
+                document.createElement("button");
+
+            removeButton.type =
+                "button";
+
+            removeButton.textContent =
+                "Remove";
+
+            removeButton.style.width =
+                "auto";
+
+            removeButton.style.padding =
+                "6px 12px";
+
+            removeButton.style.fontSize =
+                "13px";
+
+            removeButton.addEventListener(
+                "click",
+                function () {
+
+                    const newFiles =
+                        new DataTransfer();
+
+                    Array.from(
+                        selectedFiles.files
+                    ).forEach(
+                        (currentFile, currentIndex) => {
+
+                            if (
+                                currentIndex !== index
+                            ) {
+                                newFiles.items.add(
+                                    currentFile
+                                );
+                            }
+
+                        }
+                    );
+
+                    selectedFiles.items.clear();
+
+                    Array.from(
+                        newFiles.files
+                    ).forEach(
+                        file => {
+                            selectedFiles.items.add(file);
+                        }
+                    );
+
+                    photoInput.files =
+                        selectedFiles.files;
+
+                    updateFileList();
+
+                }
+            );
+
+            item.style.display =
+                "flex";
+
+            item.style.justifyContent =
+                "space-between";
+
+            item.style.alignItems =
+                "center";
+
+            item.style.gap =
+                "10px";
+
+            item.appendChild(fileName);
+
+            item.appendChild(
+                removeButton
+            );
 
             fileList.appendChild(item);
 
