@@ -341,7 +341,6 @@ submitButton.addEventListener("click", function () {
 
     alert("Thank you! Your photo has been submitted.");
 
-    location.reload();
 
 })
 
