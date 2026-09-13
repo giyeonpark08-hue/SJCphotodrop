@@ -128,10 +128,10 @@ h1 {
 
 .upload-box {
     width: 100%;
-    min-height: 120px;
+    min-height: 150px;
 
     border: 2px dashed #C5C9C1;
-    border-radius: 8px;
+    border-radius: 10px;
 
     display: flex;
     justify-content: center;
@@ -141,12 +141,15 @@ h1 {
     font-weight: 600;
 
     cursor: pointer;
+
+    transition: 0.2s;
 }
 
 .upload-box:hover {
     border-color: #5F6F52;
     background-color: #F8F9F6;
 }
+
 
 .upload-box input {
     display: none;
