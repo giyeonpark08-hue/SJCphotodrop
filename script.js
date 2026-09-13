@@ -1,4 +1,5 @@
 const scriptURL = "https://script.google.com/macros/s/AKfycbxA_L3ZVWsICH7guD8VaFipoZxburVd8y1W4fIHDTgBcapWuiHjQjmUU0Laif7K7izq/exec";
+
 const submitButton = document.getElementById("submitButton");
 
 const consent = document.getElementById("consent");
@@ -30,12 +31,138 @@ const coffeeHouseType = document.getElementById("coffeeHouseType");
 const sports = document.getElementById("sports");
 const sportsDetails = document.getElementById("sportsDetails");
 
+const sportDivisionDetails =
+    document.getElementById("sportDivisionDetails");
+
 const fallSports = document.getElementById("fallSports");
 const winterSports = document.getElementById("winterSports");
 const springSports = document.getElementById("springSports");
 
-const sportTypeDetails = document.getElementById("sportTypeDetails");
-const sportType = document.getElementById("sportType");
+const juniorSports = document.getElementById("juniorSports");
+const seniorSports = document.getElementById("seniorSports");
+const otherSports = document.getElementById("otherSports");
+
+const sportTypeDetails =
+    document.getElementById("sportTypeDetails");
+
+const sportType =
+    document.getElementById("sportType");
+
+
+/* =========================
+   SPORTS SEASON OPTIONS
+   ========================= */
+
+const seasonOptions = document.querySelectorAll(
+    'input[name="sportsSeason"]'
+);
+
+const divisionOptions = document.querySelectorAll(
+    'input[name="sportsDivision"]'
+);
+
+
+/* =========================
+   SPORTS LISTS
+   ========================= */
+
+const sportsBySeason = {
+
+    Fall: {
+
+        Junior: [
+            "Boys Basketball",
+            "Girls Basketball",
+            "Boys Volleyball",
+            "Girls Volleyball",
+            "Boys Football"
+        ],
+
+        Senior: [
+            "Boys Basketball",
+            "Girls Basketball",
+            "Boys Volleyball",
+            "Girls Volleyball",
+            "Boys Football"
+        ]
+
+    },
+
+
+    Winter: {
+
+        Junior: [
+            "Boys Basketball",
+            "Girls Basketball",
+            "Boys Volleyball",
+            "Girls Volleyball",
+            "Badminton"
+        ],
+
+        Senior: [
+            "Boys Basketball",
+            "Girls Basketball",
+            "Boys Volleyball",
+            "Girls Volleyball",
+            "Badminton"
+        ]
+
+    },
+
+
+    Spring: {
+
+        Junior: [
+            "Boys Rugby"
+        ],
+
+        Senior: [
+            "Boys Rugby"
+        ]
+
+    }
+
+};
+
+
+/* =========================
+   SPORTS WITHOUT
+   JUNIOR / SENIOR
+   ========================= */
+
+const otherSportsBySeason = {
+
+    Fall: [
+        "Cross Country",
+        "Golf",
+        "Tennis",
+        "Boys Baseball",
+        "Girls Fast Pitch",
+        "Girls Field Hockey",
+        "Girls Rugby 7s",
+        "Girls Flag Football"
+    ],
+
+
+    Winter: [
+        "Wrestling",
+        "Boys Hockey",
+        "Girls Hockey",
+        "Swimming",
+        "Curling"
+    ],
+
+
+    Spring: [
+        "Girls Rugby",
+        "Boys Soccer",
+        "Girls Soccer",
+        "Boys Lacrosse",
+        "Ultimate",
+        "Track and Field"
+    ]
+
+};
 
 
 /* =========================
@@ -47,9 +174,7 @@ categoryOptions.forEach(option => {
     option.addEventListener("change", function () {
 
 
-        /* =========================
-           PEP RALLY
-           ========================= */
+        /* PEP RALLY */
 
         if (pepRally.checked) {
 
@@ -65,9 +190,7 @@ categoryOptions.forEach(option => {
         }
 
 
-        /* =========================
-           DANCE
-           ========================= */
+        /* DANCE */
 
         if (dance.checked) {
 
@@ -83,9 +206,7 @@ categoryOptions.forEach(option => {
         }
 
 
-        /* =========================
-           COFFEE HOUSE
-           ========================= */
+        /* COFFEE HOUSE */
 
         if (coffeeHouse.checked) {
 
@@ -101,9 +222,7 @@ categoryOptions.forEach(option => {
         }
 
 
-        /* =========================
-           SPORTS
-           ========================= */
+        /* SPORTS */
 
         if (sports.checked) {
 
@@ -113,13 +232,18 @@ categoryOptions.forEach(option => {
 
             sportsDetails.style.display = "none";
 
+            sportDivisionDetails.style.display = "none";
+
             sportTypeDetails.style.display = "none";
 
-            fallSports.checked = false;
-            winterSports.checked = false;
-            springSports.checked = false;
+            seasonOptions.forEach(option => {
+                option.checked = false;
+            });
 
-            sportType.required = false;
+            divisionOptions.forEach(option => {
+                option.checked = false;
+            });
+
             sportType.value = "";
 
         }
@@ -133,17 +257,100 @@ categoryOptions.forEach(option => {
    SPORTS SEASON
    ========================= */
 
-const seasonOptions = document.querySelectorAll(
-    'input[name="sportsSeason"]'
-);
-
 seasonOptions.forEach(option => {
 
     option.addEventListener("change", function () {
 
-        sportTypeDetails.style.display = "block";
+        sportDivisionDetails.style.display = "block";
 
-        sportType.required = true;
+        sportTypeDetails.style.display = "none";
+
+        divisionOptions.forEach(option => {
+            option.checked = false;
+        });
+
+        sportType.innerHTML = `
+            <option value="">
+                Select which sport
+            </option>
+        `;
+
+    });
+
+});
+
+
+/* =========================
+   SPORTS LEVEL
+   ========================= */
+
+divisionOptions.forEach(option => {
+
+    option.addEventListener("change", function () {
+
+        const selectedSeason = document.querySelector(
+            'input[name="sportsSeason"]:checked'
+        );
+
+        if (!selectedSeason) {
+            return;
+        }
+
+
+        /* RESET SPORT LIST */
+
+        sportType.innerHTML = `
+            <option value="">
+                Select which sport
+            </option>
+        `;
+
+
+        /* OTHER */
+
+        if (this.value === "Other") {
+
+            otherSportsBySeason[selectedSeason.value].forEach(
+                sport => {
+
+                    const optionElement =
+                        document.createElement("option");
+
+                    optionElement.value = sport;
+
+                    optionElement.textContent = sport;
+
+                    sportType.appendChild(optionElement);
+
+                }
+            );
+
+
+        /* JUNIOR / SENIOR */
+
+        } else {
+
+            sportsBySeason[selectedSeason.value][this.value].forEach(
+                sport => {
+
+                    const optionElement =
+                        document.createElement("option");
+
+                    optionElement.value =
+                        this.value + " " + sport;
+
+                    optionElement.textContent =
+                        this.value + " " + sport;
+
+                    sportType.appendChild(optionElement);
+
+                }
+            );
+
+        }
+
+
+        sportTypeDetails.style.display = "block";
 
     });
 
@@ -216,16 +423,31 @@ submitButton.addEventListener("click", function () {
 
     /* SPORTS CHECK */
 
+    let subCategory = "";
+
     if (selectedCategory.value === "Sports") {
 
         const selectedSeason = document.querySelector(
             'input[name="sportsSeason"]:checked'
         );
 
+        const selectedDivision = document.querySelector(
+            'input[name="sportsDivision"]:checked'
+        );
+
 
         if (!selectedSeason) {
 
             alert("Please select a season.");
+
+            return;
+
+        }
+
+
+        if (!selectedDivision) {
+
+            alert("Please select Junior, Senior, or Other.");
 
             return;
 
@@ -239,6 +461,29 @@ submitButton.addEventListener("click", function () {
             return;
 
         }
+
+
+        subCategory =
+            selectedSeason.value +
+            " - " +
+            sportType.value;
+
+    }
+
+
+    /* OTHER CATEGORIES */
+
+    if (selectedCategory.value === "Pep Rally") {
+
+        subCategory = pepRallyType.value;
+
+    } else if (selectedCategory.value === "Dance") {
+
+        subCategory = danceType.value;
+
+    } else if (selectedCategory.value === "Coffee House") {
+
+        subCategory = coffeeHouseType.value;
 
     }
 
@@ -256,15 +501,7 @@ submitButton.addEventListener("click", function () {
     }
 
 
-       /* PHOTO CHECK */
-
-       if (photo.files[0].size > 10 * 1024 * 1024) {
-
-    alert("Photo must be 10 MB or smaller.");
-
-    return;
-
-}
+    /* PHOTO CHECK */
 
     if (photo.files.length === 0) {
 
@@ -275,32 +512,13 @@ submitButton.addEventListener("click", function () {
     }
 
 
-    /* =========================
-       SEND SUBMISSION
-       ========================= */
+    /* PHOTO SIZE CHECK */
 
-    const selectedSeason = document.querySelector(
-        'input[name="sportsSeason"]:checked'
-    );
+    if (photo.files[0].size > 10 * 1024 * 1024) {
 
-    let subCategory = "";
+        alert("Photo must be 10 MB or smaller.");
 
-    if (selectedCategory.value === "Pep Rally") {
-
-        subCategory = pepRallyType.value;
-
-    } else if (selectedCategory.value === "Dance") {
-
-        subCategory = danceType.value;
-
-    } else if (selectedCategory.value === "Coffee House") {
-
-        subCategory = coffeeHouseType.value;
-
-    } else if (selectedCategory.value === "Sports") {
-
-        subCategory =
-            selectedSeason.value + " - " + sportType.value;
+        return;
 
     }
 
@@ -337,13 +555,13 @@ submitButton.addEventListener("click", function () {
 
         })
 
-       .then(() => {
+        .then(() => {
 
-    submitButton.style.display = "none";
+            document.getElementById(
+                "successMessage"
+            ).style.display = "block";
 
-    document.getElementById("successMessage").style.display = "block";
-
-})
+        })
 
         .catch(error => {
 
